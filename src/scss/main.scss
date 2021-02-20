@@ -1,0 +1,164 @@
+@charset 'UTF-8';
+@import 'mixins';
+
+$trans: all .2s ease-in-out;
+$green: #3AC1B0;
+$orange: #F79F1D;
+
+@include font-face('ProximaNova', '../fonts/ProximaNova-Bold/ProximaNova-Bold', bold); 
+@include font-face('ProximaNova', '../fonts/ProximaNova-Regular/ProximaNova-Regular', normal); 
+
+::selection {
+	background: $green;
+	color: #fff;
+}
+
+
+body {
+	font-family: 'ProximaNova', sans-serif;
+	font-size: 14px;
+	color: #fff;
+}
+
+.icon {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	font-size: 30px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+	margin-top: 0;
+}
+
+.btn,
+input,
+textarea,
+select,
+button:focus {
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.btn {
+	display: inline-block;
+	transition: $trans;
+	text-decoration: none;
+	border: 0;
+	cursor: pointer;
+	background: $green;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px 40px 10px 20px;
+	border: 2px solid #FFFFFF;
+	position: relative;
+	font-size: 19px;
+	margin-bottom: 15px;
+
+	&:focus {
+		outline: none;
+	}
+	
+	img {
+		position: absolute;
+		bottom: -38px;
+    	right: -21px;
+	}
+}
+
+.green {
+	color: $green;
+}
+
+.orange {
+	color: $orange;
+}
+
+.container {
+	@include r(1122) {
+		padding: 0 20px;
+	}
+
+	margin: 0 auto;
+	max-width: 1082px;
+}
+
+.main {
+	background: #292E3D;
+	height: 100vh;
+
+	.container {
+		height: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		& > div {
+			width: 50%;
+		}
+	}
+
+	.top {
+		display: flex;
+		align-items: center;
+		margin-bottom: 24px;
+
+		div {
+			font-weight: bold;
+			line-height: 1.29;
+			padding-left: 22px;
+			margin-left: 22px;
+			border-left: 3px solid $green;
+		}
+	}
+
+	h1 {
+		line-height: 1.2;
+		margin-bottom: 30px;
+	}
+
+	p {
+		line-height: 1.32;
+		font-size: 22px;
+	}
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-bottom: 30px;
+
+	li {
+		position: relative;
+		margin-bottom: 20px;
+		padding-left: 20px;
+		line-height: 1.29;
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 9px;
+			height: 11px;
+			background: url('../img/mark.svg') no-repeat center;
+			background-size: contain;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
